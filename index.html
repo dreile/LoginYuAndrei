@@ -1,17 +1,36 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <script>
+            function validate(input)
+            {
+                var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+                if (input.value.match(validRegex))
+                {
+                    alert("Valid Email")
+                    document.getElementById(1).focus()
+                    return true
+                }
+                else
+                {
+                    alert("Invalid Email Address")
+                    document.getElementById(1).focus()
+                    return false
+                }
+            }
+        </script>
     </head>
 
     <body>
         <div class = "main">
-            <h1>Login</h1>
+            <h1>LOGIN</h1>
             <form>
                 <label>Username</label><br>
-                <input type="text"><br>
+                <input id = 1 type="text"><br>
                 <label>Password</label><br>
-                <input type="password"><br>
-                <button>LOGIN</button>
+                <input id = 2 type="password"><br>
+                <button onclick="validate(document.getElementById(1))">LOGIN</button>
             </form>
         </div>
     </body>

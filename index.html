@@ -22,18 +22,19 @@
 
             function validatePassword(input)
             {
-                var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                var alphabet = /^[ A-Za-z0-9_@./#&+-]*$/
 
-                if (input.value.match(validRegex))
+                if(input.value.match(alphabet))
                 {
-                    alert("Valid Email")
-                    document.getElementById(1).focus()
-                    return true
+                        alert("Valid Password")
+                        document.getElementById(2).focus()
+                        return true
                 }
+
                 else
                 {
-                    alert("Invalid Email Address")
-                    document.getElementById(1).focus()
+                    alert("Invalid Password")
+                    document.getElementById(2).focus()
                     return false
                 }
             }

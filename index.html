@@ -22,15 +22,42 @@
 
             function validatePassword(input)
             {
-                var alphabet = /^[ A-Za-z0-9_@./#&+-]*$/
-
-                if(input.value.match(alphabet))
+                var number = /^(?=.*[0-9])/;
+                var special = /^(?=.*[!@#$%^&*])/;
+                var alphabet = /^(?=.*[a-zA-Z])/;
+                if(input.value.match(number))
                 {
-                        alert("Valid Password")
+                    if(input.value.match(special))
+                    {
+                        if(input.value.match(alphabet))
+                        {
+                            if(input.value.length >= 8)
+                            {
+                                alert("Valid Password")
+                                document.getElementById(2).focus()
+                                return true
+                            }
+                            else
+                            {
+                            alert("Invalid Password")
+                            document.getElementById(2).focus()
+                            return false
+                            }
+                        }
+                        else
+                        {
+                        alert("Invalid Password")
                         document.getElementById(2).focus()
-                        return true
+                        return false
+                        }
+                    }
+                    else
+                    {
+                    alert("Invalid Password")
+                    document.getElementById(2).focus()
+                    return false
+                    }
                 }
-
                 else
                 {
                     alert("Invalid Password")
